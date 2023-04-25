@@ -86,3 +86,13 @@ a:hover {
   background-color: #00ffcc;
   transition: background-color 0.2s ease-in-out;
 }
+
+.terminal-files {
+  columns: 3;
+  column-gap: 20px;
+}
+
+.terminal-body {
+  overflow-y: auto;
+  max-height: 200px; /* or any other value you want */
+}
