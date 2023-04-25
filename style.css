@@ -18,33 +18,6 @@
   height: 30px;
 }
 
-.terminal-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 10px;
-  width: 100px;
-}
-
-.terminal-button {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  margin-right: 5px;
-}
-
-.terminal-button.red {
-  background: #FF5F56;
-}
-
-.terminal-button.yellow {
-  background: #FFBD2E;
-}
-
-.terminal-button.green {
-  background: #27C93F;
-}
-
 .terminal-title {
   margin-left: 10px;
   font-size: 12px;
