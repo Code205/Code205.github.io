@@ -2,7 +2,6 @@
 
 Welcome to [Code205.github.io](https://Code205.github.io), a personal website showcasing my projects and portfolio.
 
-
 # Description
 Code205.github.io is a static website designed to showcase my programming projects and provide information about my skills and experience. The website serves as an online portfolio where visitors can learn more about me and explore the projects I have worked on.
 
@@ -24,9 +23,9 @@ JavaScript
 Python
 
 # Usage
-To view the website, simply navigate to [Code205.github.io] in your web browser.
+To view the website, simply navigate to [Code205.github.io](https://Code205.github.io) in your web browser.
 
 Contact
-If you have any questions, suggestions, or would like to get in touch, please feel free to reach out to me via email at [caeckard@outl**k.com].
+If you have any questions, suggestions, or would like to get in touch, please feel free to reach out to me via email at caeckard@outl**k.com
 
 Thank you for visiting!
