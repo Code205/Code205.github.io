@@ -1,81 +1,101 @@
-    body {
-      background-color: #000;
-      color: #0FF;
-      font-family: 'Courier New', monospace;
-      font-size: 16px;
-    }
+body {
+  background-color: #000;
+}
 
-    .terminal {
-      background-color: #111;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px #0FF;
-      margin: 20px;
-      padding: 20px;
-    }
+h1 {
+  color: #b47cff;
+}
 
-    .terminal-header {
-      background-color: #333;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      display: flex;
-      justify-content: space-between;
-      padding: 5px;
-    }
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #b47cff;
+  border-radius: 5px;
+}
 
-    .terminal-title {
-      color: #0FF;
-      font-size: 14px;
-    }
+a {
+  color: #b47cff;
+  text-decoration: none;
+}
 
-    .terminal-body {
-      margin-top: 10px;
-    }
+a:hover {
+  color: #c699ff;
+  text-decoration: underline;
+}
 
-    .terminal-line {
-      line-height: 1.5;
-    }
+.terminal {
+  font-family: monospace;
+  color: #b47cff;
+  background-color: #111;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #b47cff;
+}
 
-    .terminal-line::before {
-      content: 'guest@terminal:~$ ';
-      color: #0F0;
-    }
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
 
-    .terminal-line:nth-child(2)::before {
-      content: 'Password: *********';
-      color: #F00;
-    }
+.terminal-title {
+  font-size: 14px;
+  color: #b47cff;
+  margin: 0;
+}
 
-    .terminal-files {
-      background-color: #111;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px #0FF;
-      margin: 20px;
-      padding: 20px;
-    }
+.terminal-body {
+  margin-top: 10px;
+  overflow-y: auto;
+  max-height: 220px;
+}
 
-    .terminal-files-title {
-      color: #0FF;
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
+.terminal-line {
+  line-height: 1.5;
+  color: #b47cff;
+}
 
-    .terminal-files-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+.terminal-files {
+  font-family: monospace;
+  color: #b47cff;
+  background-color: #111;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px #b47cff;
+  columns: 4;
+  column-gap: 10px;
+}
 
-    .terminal-files-list-item {
-      margin-bottom: 10px;
-      padding: 5px;
-    }
+.terminal-files li {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
 
-    .terminal-files-list-item a {
-      color: #0FF;
-      text-decoration: none;
-    }
+.terminal-files li a {
+  color: #b47cff;
+  text-decoration: none;
+}
 
-    .terminal-files-list-item a:hover {
-      background-color: #0FF;
-      color: #000;
-    }
+.terminal-files li a:hover {
+  color: #000000;
+  background-color: #b47cff;
+  transition: background-color 1.3s ease-in-out;
+}
+
+.homepage-button {
+  color: #b47cff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.homepage-button:hover {
+  color: #c699ff;
+  text-decoration: underline;
+}
