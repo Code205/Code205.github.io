@@ -1,27 +1,56 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Code205</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>C Eckard.net</title>
+    <link rel="stylesheet" type="text/css" href="purple.css">
+    <link rel="shortcut icon" type="image/png" href="favicon1.png">
   </head>
+  <body>
+    <div class="terminal">
+      <div class="terminal-header">
+        <div class="terminal-title">Terminal</div>
+        <a href="index.html" class="homepage-button">Home</a>
+      </div>
+      <div class="terminal-body">
+        <div class="terminal-line">Cyber Portfolio</div>
+        <div class="terminal-line">Code203</div>
+        <div class="terminal-line">Field: Information Technology</div>
+      </div>
+		
+		<div class="terminal-body">
+			<div class="terminal-line">Git Projects:</div>
+			<ul class="terminal-files">
+				<li><a href="https://github.com/Code205/Base64_EncryptDecryptor">Base64 Encrypt/Decryptor</a></li>
+			</ul>
+		</div>
+		
+		<div class="terminal-body">
+			<div class="terminal-line">Git Projects Direct Download:</div>
+			<ul class="terminal-files">
+				<li><a href="https://github.com/Code205/Base64_EncryptDecryptor/archive/refs/heads/master.zip" download>Base64 Encrypt/Decryptor</a></li>
+			</ul>
+		</div>
+		
+		<div class="terminal-body">
+			<div id="visitor-count" class="terminal-line">Welcome: <span id="visitor-ip"></span></div>
+		</div>
+    </div>
 
-  <div class="terminal">
-    <div class="terminal-header">
-      <div class="terminal-title">Terminal</div>
-    </div>
-    <div class="terminal-body">
-      <div class="terminal-line">Welcome to my Github</div>
-      <div class="terminal-line">Here are direct downloads to my Git Projects</div>
-    </div>
-    <div class="terminal-files">
-      <div class="terminal-files-title">Projects:</div>
-      <ul class="terminal-files-list">
-        <li class="terminal-files-list-item"><a href="assignment1.pdf" download>Assignment 1</a></li>
-        <li class="terminal-files-list-item"><a href="assignment2.pdf" download>Assignment 2</a></li>
-        <li class="terminal-files-list-item"><a href="assignment3.pdf" download>Assignment 3</a></li>
-      </ul>
-    </div>
-  </div>
+    <script>
+      // Get visitor's IP address
+      function getVisitorIP() {
+        fetch('https://api.ipify.org?format=json')
+          .then(response => response.json())
+          .then(data => {
+            const visitorIP = data.ip;
+            const visitorIPElement = document.getElementById('visitor-ip');
+            visitorIPElement.textContent = visitorIP;
+          })
+          .catch(error => console.log(error));
+      }
 
-</body>
+      // Execute on page load
+      getVisitorIP();
+    </script>
+  </body>
 </html>
