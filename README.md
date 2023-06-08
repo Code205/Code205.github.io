@@ -1,6 +1,6 @@
 # Code205.github.io
 
-Welcome to [Code205.github.io] , a personal website showcasing my projects and portfolio.
+Welcome to Code205.github.io(https://Code205.github.io), a personal website showcasing my projects and portfolio.
 
 # Description
 Code205.github.io is a static website designed to showcase my programming projects and provide information about my skills and experience. The website serves as an online portfolio where visitors can learn more about me and explore the projects I have worked on.
