@@ -26,6 +26,6 @@ Python
 To view the website, simply navigate to [Code205.github.io](https://Code205.github.io) in your web browser.
 
 Contact
-If you have any questions, suggestions, or would like to get in touch, please feel free to reach out to me via email at caeckard@outl**k.com
+If you have any questions, suggestions, or would like to get in touch, please feel free to reach out
 
 Thank you for visiting!
