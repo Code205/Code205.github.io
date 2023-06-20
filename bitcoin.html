@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>0x Live</title>
+  <link rel="shortcut icon" type="image/png" href="favicon1.png">
+  <style>
+    body {
+      background-color: #111c2e;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .terminal {
+      font-family: monospace;
+      color: #ffffff;
+      background-color: #1f3245;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(31, 50, 69, 0.5);
+      overflow: auto;
+    }
+
+    .terminal::-webkit-scrollbar {
+      width: 10px;
+      background-color: #1f3245;
+    }
+
+    .terminal::-webkit-scrollbar-thumb {
+      background-color: #7da5b5;
+      border-radius: 5px;
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #253e56;
+      padding: 10px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .terminal-title {
+      font-size: 18px;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .terminal-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .terminal-links a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .terminal-links a:hover {
+      text-decoration: underline;
+    }
+
+    .transaction-table {
+      font-family: monospace;
+      color: #ffffff;
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .transaction-table th,
+    .transaction-table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #7da5b5;
+    }
+
+    .transaction-table th {
+      background-color: #1f3245;
+    }
+
+    .transaction-table td {
+      background-color: #253e56;
+    }
+
+    .separator {
+      margin: 0 10px;
+      color: #ffffff;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="terminal-links">
+        <a href="index.html">Home</a>
+        <span class="separator">|</span>
+        <a href="litecoin.html">LTC</a>
+      </div>
+      <h1 class="terminal-title">Bitcoin Transactions Live Feed</h1>
+    </div>
+
+    <table class="transaction-table" id="transaction-table">
+      <thead>
+        <tr>
+          <th>Amount (BTC)</th>
+          <th>Sender</th>
+          <th>Recipient</th>
+          <th>Fees (BTC)</th>
+          <th>Time</th>
+          <th>TX</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be populated here dynamically -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function fetchTransactions(page = 1, perPage = 100) {
+      const url = `https://api.blockcypher.com/v1/btc/main/txs?page=${page}&limit=${perPage}`;
+
+      $.ajax({
+        url: url,
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+          const transactionBody = $('#transaction-table tbody');
+
+          // Clear existing rows
+          transactionBody.empty();
+
+          // Iterate through the transaction data and populate the table
+          for (let i = 0; i < data.length; i++) {
+            const transaction = data[i];
+            const timestamp = transaction.received ? transaction.received : transaction.confirmed;
+            const formattedTimestamp = timestamp ? new Date(timestamp).toLocaleString() : 'N/A';
+            const row = `
+              <tr>
+                <td>${transaction.outputs[0].value / 100000000}</td>
+                <td>${transaction.inputs[0].addresses[0]}</td>
+                <td>${transaction.outputs[0].addresses[0]}</td>
+                <td>${transaction.fees / 100000000}</td>
+                <td>${formattedTimestamp}</td>
+                <td>${transaction.hash}</td>
+              </tr>
+            `;
+            transactionBody.append(row);
+          }
+        },
+        error: function(error) {
+          console.error('Error fetching transaction data:', error);
+        }
+      });
+    }
+
+    // Fetch transactions initially
+    fetchTransactions();
+
+    // Periodically fetch transactions every 10 seconds (adjust as needed)
+    setInterval(fetchTransactions, 950);
+  </script>
+</body>
+</html>
